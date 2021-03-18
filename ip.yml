@@ -1,0 +1,20 @@
+ - hosts: localhost
+   vars_prompt:
+         - name: MasterIP
+           prompt: "Enter IP of Master"
+           private: no
+         - name: LB1
+           prompt: "Enter IP of Fisrt system" 
+           private: no
+         - name: LB2
+           prompt: "Enter IP of Second system"
+           private: no
+   tasks:
+         - blockinfile: 
+             path: /root/ip.txt
+             block: |
+                    [master] 
+                    {{ MasterIP }} ansible_user=ec2-user ansible_ssh_private_key_file=/root/NewKeyTask12.pem
+                    [target] 
+                    {{ LB1 }} ansible_user=ec2-user ansible_ssh_private_key_file=/root/NewKeyTask12.pem
+                    {{ LB2 }} ansible_user=ec2-user ansible_ssh_private_key_file=/root/NewKeyTask12.pem  

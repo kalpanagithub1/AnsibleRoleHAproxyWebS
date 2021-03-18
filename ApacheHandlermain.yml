@@ -1,0 +1,7 @@
+---
+# handlers file for apacherole
+- name: "Restart services"
+  service:
+            name: "{{ package }}"
+            state: restarted
+

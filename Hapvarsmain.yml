@@ -1,0 +1,4 @@
+---
+# vars file for haprole
+         package: haproxy
+         bind_port: 1234

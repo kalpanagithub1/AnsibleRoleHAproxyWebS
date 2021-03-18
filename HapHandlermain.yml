@@ -1,0 +1,6 @@
+---
+# handlers file for haprole
+ - name: "Restart services"
+   service:
+           name: "{{ package }}"
+           state: restarted

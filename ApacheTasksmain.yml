@@ -1,0 +1,14 @@
+---
+# tasks file for apacherole
+ - package:
+          name: "{{ package }}"
+          state: present
+ - service:
+          name: "{{ package }}"
+          state: started
+          enabled : yes       
+ - template:
+          src: main.php
+          dest: /var/www/html
+   notify : "Restart services"
+  

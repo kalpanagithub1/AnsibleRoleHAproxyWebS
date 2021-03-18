@@ -1,0 +1,13 @@
+---
+# tasks file for haprole
+ - package:
+          name: "{{ package }}"
+          state: present
+ - template:  
+          src: haproxy.cfg.j2
+          dest: /etc/haproxy/haproxy.cfg  
+   notify: "Restart services"
+ - service:
+          name: "{{ package }}"
+          state: started
+   notify: "Restart services"        
